@@ -18,8 +18,8 @@ import java.util.Date;
  * <br/> Time: 4:19 PM
  */
 @Entity
-@Table(name = "APPROVED_LEAVE")
-public class ApprovedLeave
+@Table(name = "APPLIED_LEAVE")
+public class AppliedLeave
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,6 +38,9 @@ public class ApprovedLeave
 
 	@Column(name = "apl_to_dttm")
 	private Date aplToDttm;
+
+	@Column(name = "apl_is_approved", nullable = false)
+	private Boolean aplIsApproved = false;
 
 	public Integer getAplId()
 	{
@@ -82,5 +85,15 @@ public class ApprovedLeave
 	public void setAplToDttm(Date aplToDttm)
 	{
 		this.aplToDttm = aplToDttm;
+	}
+
+	public Boolean getAplIsApproved()
+	{
+		return aplIsApproved;
+	}
+
+	public void setAplIsApproved(Boolean aplIsApproved)
+	{
+		this.aplIsApproved = aplIsApproved;
 	}
 }
