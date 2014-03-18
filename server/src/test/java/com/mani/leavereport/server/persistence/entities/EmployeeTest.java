@@ -3,6 +3,7 @@ package com.mani.leavereport.server.persistence.entities;
 import java.util.List;
 
 import com.mani.leavereport.server.persistence.helper.HibernateUtilTest;
+import org.hibernate.exception.ConstraintViolationException;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -79,15 +80,14 @@ public class EmployeeTest extends HibernateUtilTest
 		Assert.assertEquals(true, session.contains(siddu));
 	}
 
-	@Test
-	public void testAddSomeMoreEmployees() throws Exception
+	@Test(expected = ConstraintViolationException.class)
+	public void testAddDuplicateEmployee() throws Exception
 	{
 		Employee e1 = new Employee();
-		e1.setEmpId("IB123");
+		e1.setEmpId("IB1908");
 		e1.setEmpName("Bob");
 		e1.setDeptName("IT");
 
-		session.beginTransaction();
 		session.save(e1);
 		session.getTransaction().commit();
 	}
