@@ -39,12 +39,12 @@ public class EmployeeTest extends HibernateUtilTest
 		String deptName = "hgcp";
 
 		// Setters
-		mani.setEmpId(empId);
+		mani.setEmpCode(empId);
 		mani.setDeptName(deptName);
 		mani.setEmpName(empName);
 
 		// Getters
-		Assert.assertEquals(empId, mani.getEmpId());
+		Assert.assertEquals(empId, mani.getEmpCode());
 		Assert.assertEquals(empName, mani.getEmpName());
 		Assert.assertEquals(deptName, mani.getDeptName());
 	}
@@ -52,22 +52,22 @@ public class EmployeeTest extends HibernateUtilTest
 	@Test
 	public void testInsertUpdateEmployee() throws Exception
 	{
-		List list = session.createQuery("from Employee where empId ='IB1908'").list();
+		List list = session.createQuery("from Employee where empCode ='IB1908'").list();
 		Employee mani = list.size() > 0 ? (Employee) list.get(0) : null;
 		if( mani == null )
 		{
 			mani = new Employee();
-			mani.setEmpId("IB1908");
+			mani.setEmpCode("IB1908");
 			mani.setEmpName("Mani S");
 			mani.setDeptName("hGCP");
 		}
 
-		list = session.createQuery("from Employee where empId ='IB1577'").list();
+		list = session.createQuery("from Employee where empCode ='IB1577'").list();
 		Employee siddu = list.size() > 0 ? (Employee) list.get(0) : null;
 		if(siddu == null)
 		{
 			siddu = new Employee();
-			siddu.setEmpId("IB1577");
+			siddu.setEmpCode("IB1577");
 			siddu.setEmpName("Siddu");
 			siddu.setDeptName("itssi");
 		}
@@ -78,13 +78,14 @@ public class EmployeeTest extends HibernateUtilTest
 
 		Assert.assertEquals(true, session.contains(mani));
 		Assert.assertEquals(true, session.contains(siddu));
+		Assert.assertEquals(true, session.createQuery("from Employee").list().size() > 0);
 	}
 
 	@Test(expected = ConstraintViolationException.class)
 	public void testAddDuplicateEmployee() throws Exception
 	{
 		Employee e1 = new Employee();
-		e1.setEmpId("IB1908");
+		e1.setEmpCode("IB1908");
 		e1.setEmpName("Bob");
 		e1.setDeptName("IT");
 

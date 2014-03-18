@@ -22,11 +22,11 @@ public class Employee implements Serializable
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", nullable = false)
-	private Integer id;
+	@Column(name = "emp_id", nullable = false)
+	private Integer empId;
 
-	@Column(name = "emp_id", unique = true, nullable = false)
-	private String empId;
+	@Column(name = "emp_code", unique = true, nullable = false)
+	private String empCode;
 
 	@Column(name = "emp_name", unique = false, nullable = false)
 	private String empName;
@@ -34,19 +34,19 @@ public class Employee implements Serializable
 	@Column(name = "dept_name", unique = false, nullable = true)
 	private String deptName;
 
-	public Integer getId()
-	{
-		return id;
-	}
-
-	public String getEmpId()
+	public Integer getEmpId()
 	{
 		return empId;
 	}
 
-	public void setEmpId(String empId)
+	public String getEmpCode()
 	{
-		this.empId = empId;
+		return empCode;
+	}
+
+	public void setEmpCode(String empCode)
+	{
+		this.empCode = empCode;
 	}
 
 	public String getEmpName()

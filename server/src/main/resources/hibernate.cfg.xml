@@ -20,5 +20,7 @@
 		<!--create the database schema on startup if required -->
 		<property name="hbm2ddl.auto">update</property>
 		<mapping class="com.mani.leavereport.server.persistence.entities.Employee" />
+		<mapping class="com.mani.leavereport.server.persistence.entities.ApprovedLeave" />
+		<mapping class="com.mani.leavereport.server.persistence.entities.PendingLeave" />
 	</session-factory>
 </hibernate-configuration>
