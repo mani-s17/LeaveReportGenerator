@@ -21,5 +21,6 @@
 		<property name="hbm2ddl.auto">update</property>
 		<mapping class="com.mani.leavereport.server.persistence.entities.Employee" />
 		<mapping class="com.mani.leavereport.server.persistence.entities.AppliedLeave" />
+		<mapping class="com.mani.leavereport.server.persistence.entities.AttendanceRegister" />
 	</session-factory>
 </hibernate-configuration>

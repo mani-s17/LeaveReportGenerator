@@ -2,8 +2,8 @@ package com.mani.leavereport.server.persistence.entities;
 
 import java.util.Date;
 
+import com.mani.leavereport.server.persistence.helper.AttendanceType;
 import com.mani.leavereport.server.persistence.helper.HibernateUtilTest;
-import com.mani.leavereport.server.persistence.helper.LeaveType;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -33,7 +33,7 @@ public class AppliedLeaveTest extends HibernateUtilTest
 	public void testApprovedLeaveGetterSetter()
 	{
 		Employee emp = (Employee) session.get(Employee.class, 1);
-		String type = LeaveType.ABSENT.getType();
+		String type = AttendanceType.ABSENT.getType();
 		Date aplFromDttm = new Date(System.currentTimeMillis() - (3 * 24 * 60 * 60 * 1000L));
 		Date aplToDttm = new Date(System.currentTimeMillis() - (2 * 24 * 60 * 60 * 1000L));
 		Boolean aplIsApproved = true;
@@ -57,7 +57,7 @@ public class AppliedLeaveTest extends HibernateUtilTest
 		Employee emp = (Employee) session.get(Employee.class, 2);
 		AppliedLeave appliedLeave = new AppliedLeave();
 		appliedLeave.setEmployee(emp);
-		appliedLeave.setAplType(LeaveType.LOSS_OF_PAY.getType());
+		appliedLeave.setAplType(AttendanceType.LOSS_OF_PAY.getType());
 		appliedLeave.setAplFromDttm(new Date(System.currentTimeMillis() - (3 * 24 * 60 * 60 * 1000L)));
 		appliedLeave.setAplToDttm(new Date(System.currentTimeMillis() - (2 * 24 * 60 * 60 * 1000L)));
 
