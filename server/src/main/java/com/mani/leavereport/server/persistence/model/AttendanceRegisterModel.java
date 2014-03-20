@@ -1,17 +1,4 @@
-package com.mani.leavereport.server.persistence.entities;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-
-import java.io.Serializable;
+package com.mani.leavereport.server.persistence.model;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,129 +6,49 @@ import java.io.Serializable;
  * <br/> Date: 19/3/14
  * <br/> Time: 3:59 PM
  */
-@Entity
-@Table(name = "ATTENDANCE_REGISTER", uniqueConstraints = @UniqueConstraint(columnNames={"emp_id", "atr_year", "atr_month"}))
-public class AttendanceRegister implements Serializable
+public class AttendanceRegisterModel implements Model
 {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "atr_id", nullable = false)
-	private Integer atrId;
-
-	@ManyToOne
-	@JoinColumn(name = "emp_id")
-	private Employee employee;
-
-	@Column(name = "atr_year")
+	private EmployeeModel employee;
 	private Integer atrYear;
-
-	@Column(name = "atr_month")
 	private Integer atrMonth;
-
-	@Column(name = "atr_day_1")
 	private String atrDay1;
-
-	@Column(name = "atr_day_2")
 	private String atrDay2;
-
-	@Column(name = "atr_day_3")
 	private String atrDay3;
-
-	@Column(name = "atr_day_4")
 	private String atrDay4;
-
-	@Column(name = "atr_day_5")
 	private String atrDay5;
-
-	@Column(name = "atr_day_6")
 	private String atrDay6;
-
-	@Column(name = "atr_day_7")
 	private String atrDay7;
-
-	@Column(name = "atr_day_8")
 	private String atrDay8;
-
-	@Column(name = "atr_day_9")
 	private String atrDay9;
-
-	@Column(name = "atr_day_10")
 	private String atrDay10;
-
-	@Column(name = "atr_day_11")
 	private String atrDay11;
-
-	@Column(name = "atr_day_12")
 	private String atrDay12;
-
-	@Column(name = "atr_day_13")
 	private String atrDay13;
-
-	@Column(name = "atr_day_14")
 	private String atrDay14;
-
-	@Column(name = "atr_day_15")
 	private String atrDay15;
-
-	@Column(name = "atr_day_16")
 	private String atrDay16;
-
-	@Column(name = "atr_day_17")
 	private String atrDay17;
-
-	@Column(name = "atr_day_18")
 	private String atrDay18;
-
-	@Column(name = "atr_day_19")
 	private String atrDay19;
-
-	@Column(name = "atr_day_20")
 	private String atrDay20;
-
-	@Column(name = "atr_day_21")
 	private String atrDay21;
-
-	@Column(name = "atr_day_22")
 	private String atrDay22;
-
-	@Column(name = "atr_day_23")
 	private String atrDay23;
-
-	@Column(name = "atr_day_24")
 	private String atrDay24;
-
-	@Column(name = "atr_day_25")
 	private String atrDay25;
-
-	@Column(name = "atr_day_26")
 	private String atrDay26;
-
-	@Column(name = "atr_day_27")
 	private String atrDay27;
-
-	@Column(name = "atr_day_28")
 	private String atrDay28;
-
-	@Column(name = "atr_day_29")
 	private String atrDay29;
-
-	@Column(name = "atr_day_30")
 	private String atrDay30;
-
-	@Column(name = "atr_day_31")
 	private String atrDay31;
 
-	public Integer getAtrId()
-	{
-		return atrId;
-	}
-
-	public Employee getEmployee()
+	public EmployeeModel getEmployee()
 	{
 		return employee;
 	}
 
-	public void setEmployee(Employee employee)
+	public void setEmployee(EmployeeModel employee)
 	{
 		this.employee = employee;
 	}

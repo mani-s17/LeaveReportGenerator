@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import java.util.Date;
 
 /**
@@ -18,7 +19,7 @@ import java.util.Date;
  * <br/> Time: 4:19 PM
  */
 @Entity
-@Table(name = "APPLIED_LEAVE")
+@Table(name = "APPLIED_LEAVE",  uniqueConstraints = @UniqueConstraint(columnNames={"emp_id", "apl_type", "apl_from_dttm", "apl_to_dttm", "apl_is_approved"}))
 public class AppliedLeave
 {
 	@Id
@@ -26,7 +27,7 @@ public class AppliedLeave
 	@Column(name = "apl_id", nullable = false)
 	private Integer aplId;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "emp_id")
 	private Employee employee;
 

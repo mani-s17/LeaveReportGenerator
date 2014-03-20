@@ -74,22 +74,11 @@ public class EmployeeTest extends HibernateUtilTest
 
 		session.saveOrUpdate(mani);
 		session.saveOrUpdate(siddu);
-		session.getTransaction().commit();
+		/*session.getTransaction().commit();
+		session.flush();*/
 
 		Assert.assertEquals(true, session.contains(mani));
 		Assert.assertEquals(true, session.contains(siddu));
 		Assert.assertEquals(true, session.createQuery("from Employee").list().size() > 0);
-	}
-
-	@Test(expected = ConstraintViolationException.class)
-	public void testAddDuplicateEmployee() throws Exception
-	{
-		Employee e1 = new Employee();
-		e1.setEmpCode("IB1908");
-		e1.setEmpName("Bob");
-		e1.setDeptName("IT");
-
-		session.save(e1);
-		session.getTransaction().commit();
 	}
 }

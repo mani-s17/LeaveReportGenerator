@@ -28,7 +28,19 @@ public class HibernateUtilTest
 	@After
 	public void tearDown() throws Exception
 	{
-		session.close();
+		try
+		{
+			session.getTransaction().commit();
+			session.flush();
+		}
+		catch (Exception e)
+		{
+			Assert.fail(e.getMessage());
+		}
+		finally
+		{
+			session.close();
+		}
 	}
 
 	@Test

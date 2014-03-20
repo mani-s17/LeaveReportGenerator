@@ -61,8 +61,8 @@ public class AppliedLeaveTest extends HibernateUtilTest
 		appliedLeave.setAplFromDttm(new Date(System.currentTimeMillis() - (3 * 24 * 60 * 60 * 1000L)));
 		appliedLeave.setAplToDttm(new Date(System.currentTimeMillis() - (2 * 24 * 60 * 60 * 1000L)));
 
-		session.save(appliedLeave);
-		session.getTransaction().commit();
+		session.saveOrUpdate(appliedLeave);
+		//session.getTransaction().commit();
 		Assert.assertEquals(true, session.createQuery("from AppliedLeave").list().size() > 0);
 	}
 }

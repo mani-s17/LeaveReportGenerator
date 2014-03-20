@@ -4,6 +4,7 @@ import com.mani.leavereport.server.persistence.entities.AppliedLeaveTest;
 import com.mani.leavereport.server.persistence.entities.AttendanceRegister;
 import com.mani.leavereport.server.persistence.entities.AttendanceRegisterTest;
 import com.mani.leavereport.server.persistence.entities.EmployeeTest;
+import com.mani.leavereport.server.persistence.helper.DatabaseHelperTest;
 import com.mani.leavereport.server.persistence.helper.HibernateUtilTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -21,7 +22,8 @@ import org.junit.runners.Suite;
 
 				EmployeeTest.class,
 				AppliedLeaveTest.class,
-				AttendanceRegisterTest.class
+				AttendanceRegisterTest.class,
+				DatabaseHelperTest.class
 		}
 )
 public class TestSuite
